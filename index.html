@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cuisine Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1><u> Cuisine Prediction model</u></h1>
+    <form id="predict-form">
+      <label>Average Cost for Two:</label>
+      <input type="number" step="0.01" name="cost" min="0" placeholder="Enter cost" required><br>
+
+      <label>Price Range:</label>
+      <select name="price_range" required>
+        <option value="" disabled selected>--Select--</option>
+        <option value="1">1 (Low)</option>
+        <option value="2">2 (Medium)</option>
+        <option value="3">3 (High)</option>
+        <option value="4">4 (Premium)</option>
+      </select><br>
+
+      <label>Aggregate Rating (0.0 - 5.0):</label>
+      <input type="number" step="0.1" name="rating" min="0" max="5" placeholder="Enter rating" required><br>
+
+      <label>Has Table Booking:</label>
+      <select name="table_booking" required>
+        <option value="" disabled selected>--Select--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br>
+
+      <label>Has Online Delivery:</label>
+      <select name="online_delivery" required>
+        <option value="" disabled selected>--Select--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br>
+
+      <button type="submit">Predict</button>
+      <button type="button" id="reset-btn">Reset</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
